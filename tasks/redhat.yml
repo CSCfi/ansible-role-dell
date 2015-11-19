@@ -4,5 +4,8 @@
  - name: add Dell DSU repo
    template: src=dell-system-update-repository.repo.j2 dest=/etc/yum.repos.d/dell-system-update-repository.repo mode=0644 owner=root backup=yes
 
- - name: install dell srvadmin-idracadm
+ - name: install Dell DSU Key
+   rpm_key: key=http://linux.dell.com/repo/hardware/dsu/public.key state=present
+
+ - name: install srvadmin-idracadm
    yum: pkg=srvadmin-idracadm
