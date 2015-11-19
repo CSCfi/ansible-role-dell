@@ -4,5 +4,5 @@
  - name: add Dell DSU repo
    template: src=dell-system-update-repository.repo.j2 dest=/etc/yum.repos.d/dell-system-update-repository.repo mode=0644 owner=root backup=yes
 
-# - name: install dell software
-#   yum: pkg=dell_ft_ie
+ - name: install dell srvadmin-idracadm
+   yum: pkg=srvadmin-idracadm
