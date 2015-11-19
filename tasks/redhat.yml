@@ -1,8 +1,8 @@
 ---
 # tasks file for ansible-role-dell
 
- - name: add Dell OMSA repo
-   template: src=dell-omsa-repository.repo.j2 dest=/etc/yum.repos.d/dell-omsa-repository.repo mode=0644 owner=root backup=yes
+ - name: add Dell DSU repo
+   template: src=dell-system-update-repository.repo.j2 dest=/etc/yum.repos.d/dell-system-update-repository.repo mode=0644 owner=root backup=yes
 
 # - name: install dell software
 #   yum: pkg=dell_ft_ie

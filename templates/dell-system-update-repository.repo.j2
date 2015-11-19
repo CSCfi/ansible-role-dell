@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+
+[dell-system-update_independent]
+name=dell-system-update_independent
+baseurl=http://linux.dell.com/repo/hardware/dsu/os_independent/
+gpgcheck=1
+gpgkey=http://linux.dell.com/repo/hardware/dsu/public.key
+enabled=1
+exclude=dell-system-update*.$exclude_arch
+
+[dell-system-update_dependent]
+name=dell-system-update_dependent
+mirrorlist=http://linux.dell.com/repo/hardware/dsu/mirrors.cgi?osname=el7&basearch=x86_64&native=1
+gpgcheck=1
+gpgkey=http://linux.dell.com/repo/hardware/dsu/public.key
+enabled=0

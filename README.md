@@ -1,11 +1,14 @@
 ansible-role-dell
 =========
 
-Installs Dell OMSA yum repo and related softwares for managing a Dell server 
+Installs Dell DSU yum repo and related softwares for managing a Dell server 
+
+http://linux.dell.com/repo/hardware/dsu/
 
 Requirements
 ------------
 
+ - ansible -m setup and system_vendor should say "Dell Inc."
 
 Role Variables
 --------------

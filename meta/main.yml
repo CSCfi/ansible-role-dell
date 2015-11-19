@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Johan Guldmyr
-  description: Installs Dell OMSA yum repo and related softwares for managing a Dell server 
+  description: Installs Dell yum repo and related softwares for managing a Dell server 
   company: CSC - IT Center for Science Ltd.
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
