@@ -13,6 +13,7 @@ Requirements
 Role Variables
 --------------
 
+install_dell_dsu: True
 
 Dependencies
 ------------

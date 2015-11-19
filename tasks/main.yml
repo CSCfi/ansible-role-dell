@@ -2,4 +2,4 @@
 # tasks file for ansible-role-dell
 
  - include: redhat.yml
-   when: ansible_system_vendor == "Dell Inc."
+   when: ansible_system_vendor == "Dell Inc." and install_dell_dsu
