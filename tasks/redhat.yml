@@ -7,5 +7,7 @@
  - name: install Dell DSU Key
    rpm_key: key=http://linux.dell.com/repo/hardware/dsu/public.key state=present
 
- - name: install srvadmin-idracadm
-   yum: pkg=srvadmin-idracadm
+ - name: install packages
+   yum: pkg={{ item }}
+   with_items: dell_packages
+   when: dell_packages.0 != ""
