@@ -4,5 +4,5 @@
 install_dell_dsu: True
 
 dell_packages:
- - "srvadmin-idracadm"
+ - "srvadmin-idracadm7"
  - "openssl-devel"
