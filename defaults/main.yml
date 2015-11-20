@@ -8,8 +8,8 @@ dell_packages:
  - "openssl-devel"
 
 dell_helper_scripts:
- - "racadm"
- - "wrapper_racadm"
+ - "racadm.sh"
+ - "wrapper_racadm.sh"
 
 dell_install_helper_scripts: True
 
