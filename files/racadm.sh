@@ -79,9 +79,15 @@ case "$command" in
   getxml)
     # Get the xml config
     $raccmd get -t xml -f /tmp/$host.xml
+    if [ "$?" == 0 ]; then
+    echo "xml written to /tmp/$host.xml"
+    else
+    echo "could not write XML"
+    fi
     ;;
   setxml)
     # Set the xml config
+    echo "Setting /tmp/$host-set.xml"
     $raccmd set -t xml -f /tmp/$host-set.xml
     ;;
   bootonce)
