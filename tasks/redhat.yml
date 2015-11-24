@@ -13,6 +13,6 @@
    when: dell_packages.0 != ""
 
  - name: copy in idrac csc helper scripts
-   copy: src={{ item }} dest=/usr/local/bin/{{ item }} mode=0755 owner=root group=root backup=yes
+   copy: src={{ item }} dest=/usr/local/bin/{{ item }} mode=0755 owner=root group=root backup=no
    with_items: dell_helper_scripts
    when: dell_helper_scripts.0 != "" and dell_install_helper_scripts
