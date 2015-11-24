@@ -39,7 +39,7 @@ usage () {
   echo  "  powerup"
   echo  "  rouser - add a readonlyuser"
   echo  "  setled - enable led"
-  echo  "  setxml - configure XML from a file /tmp/<host>.xml"
+  echo  "  setxml - configure XML from a file /tmp/<host>-set.xml"
   echo  "  syslog - configure sending syslog to a remote server"
   exit ${RC:-2}
 }
@@ -81,8 +81,8 @@ case "$command" in
     $raccmd get -t xml -f /tmp/$host.xml
     ;;
   setxml)
-    # Get the xml config
-    $raccmd set -t xml -f /tmp/$host.xml
+    # Set the xml config
+    $raccmd set -t xml -f /tmp/$host-set.xml
     ;;
   bootonce)
     # Enable bootonce
@@ -110,7 +110,7 @@ case "$command" in
     $raccmd serveraction powerdown
     ;;
   powerup)
-    $raccmd serveraction powerdown
+    $raccmd serveraction powerup
     ;;
   powerstatus)
     $raccmd serveraction powerstatus
