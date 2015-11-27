@@ -57,21 +57,12 @@ raccmd="/opt/dell/srvadmin/sbin/racadm -r $host -u $adminuser -p $password"
 ## Some safety checks
 if [ ! -f "/opt/dell/srvadmin/sbin/racadm" ]; then
 	echo "Error: /opt/dell/srvadmin/sbin/racadm is not found"
-	echo
-	echo
-	usage
 fi
 if [ "$IPMI_USERNAME" == "" ]; then
 	echo "Error: IPMI_USERNAME is not set"
-	echo
-	echo
-	usage
 fi
 if [ "$IPMI_PASSWORD" == "" ]; then
 	echo "Error: IPMI_PASSWORD is not set"
-	echo
-	echo
-	usage
 fi
 ##
 
@@ -79,15 +70,11 @@ case "$command" in
   getxml)
     # Get the xml config
     $raccmd get -t xml -f /tmp/$host.xml
-    if [ "$?" == 0 ]; then
-    echo "xml written to /tmp/$host.xml"
-    else
-    echo "could not write XML"
-    fi
+    echo "xml location /tmp/$host.xml"
     ;;
   setxml)
     # Set the xml config
-    echo "Setting /tmp/$host-set.xml"
+    echo "xml set with /tmp/$host-set.xml"
     $raccmd set -t xml -f /tmp/$host-set.xml
     ;;
   bootonce)
