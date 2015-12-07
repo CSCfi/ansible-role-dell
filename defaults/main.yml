@@ -6,6 +6,7 @@ install_dell_dsu: True
 dell_packages:
  - "srvadmin-idracadm7"
  - "openssl-devel"
+ - "dell-system-update"
 
 dell_helper_scripts:
  - "racadm.sh"
