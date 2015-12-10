@@ -16,3 +16,6 @@
    copy: src={{ item }} dest=/usr/local/bin/{{ item }} mode=0755 owner=root group=root backup=no
    with_items: dell_helper_scripts
    when: dell_helper_scripts.0 != "" and dell_install_helper_scripts
+
+ - name: copy remote console app binary
+   copy: src=file/j.bin dest=/usr/bin/javaws mode=0755 owner=root group=root backup=no
