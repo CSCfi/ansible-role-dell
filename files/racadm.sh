@@ -52,7 +52,7 @@ password=$IPMI_PASSWORD
 host=$1
 shift
 command=$*
-raccmd="/opt/dell/srvadmin/sbin/racadm -r $host -u $adminuser -p $password"
+raccmd="/opt/dell/srvadmin/sbin/racadm -r $host -u $adminuser -p $password --nocertwarn"
 
 ## Some safety checks
 if [ ! -f "/opt/dell/srvadmin/sbin/racadm" ]; then
