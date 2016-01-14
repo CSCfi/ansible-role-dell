@@ -19,7 +19,7 @@
    register: reg_installed_omreport
 
  - name: restart dell services if we just installed them
-   command: srvadmin-services.sh restart
+   command: /opt/dell/srvadmin/sbin/srvadmin-services.sh restart
    when: reg_installed_omreport.changed
 
  - name: copy in idrac csc helper scripts
