@@ -9,6 +9,13 @@ dell_packages:
  - "dell-system-update"
  - "net-tools"
 
+# If True install packages so one can run check_openmanage
+# http://folk.uio.no/trondham/software/check_openmanage.html
+dell_omreport: True
+dell_omreport_packages:
+ - "srvadmin-omacore"
+ - "srvadmin-storageservices"
+
 dell_helper_scripts:
  - "racadm.sh"
  - "wrapper_racadm.sh"

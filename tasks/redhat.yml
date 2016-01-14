@@ -12,6 +12,16 @@
    with_items: dell_packages
    when: dell_packages.0 != ""
 
+ - name: install omreport packages
+   yum: pkg={{ item }}
+   with_items: dell_omreport_packages
+   when: dell_omreport_packages.0 != "" and dell_omreport
+   register: reg_installed_omreport
+
+ - name: restart dell services if we just installed them
+   command: srvadmin-services.sh restart
+   when: reg_installed_omreport.changed
+
  - name: copy in idrac csc helper scripts
    copy: src={{ item }} dest=/usr/local/bin/{{ item }} mode=0755 owner=root group=root backup=no
    with_items: dell_helper_scripts
