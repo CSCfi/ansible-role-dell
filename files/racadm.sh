@@ -40,6 +40,7 @@ usage () {
   echo  "  rouser - add a readonlyuser"
   echo  "  setled - enable led"
   echo  "  setxml - configure XML from a file /tmp/<host>-set.xml"
+  echo  "  sshpkauth - add keys to ssh users"
   echo  "  syslog - configure sending syslog to a remote server"
   exit ${RC:-2}
 }
@@ -178,6 +179,10 @@ case "$command" in
     ;;
   disableled)
     $raccmd setled -l 0
+    ;;
+  sshpkauth)
+    # Add an ssh pub key to user with ID 2 and into key slot 1
+    $raccmd sshpkauth -i 2 -k 1 -f .ssh/id_rsa.pub
     ;;
   help)
     $raccmd help
