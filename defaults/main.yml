@@ -22,3 +22,5 @@ dell_helper_scripts:
 
 dell_install_helper_scripts: True
 
+# Set this to False to not comment out the "vil7=dsm_sm_psrvil" in stsvc.ini from srvadmin-storage
+dell_disable_vil7: True

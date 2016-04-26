@@ -29,3 +29,12 @@
 
  - name: copy remote console app binary
    copy: src=remoteConsoleLoader dest=/opt/dell/remoteConsoleLoader mode=0755 owner=root group=root backup=no
+
+ - name: disable NVMe device monitoring - in OMSA 8.3 it breaks omreport commands
+   lineinfile: dest=/opt/dell/srvadmin/etc/srvadmin-storage/stsvc.ini
+               line="; vil7=dsm_sm_psrvil" 
+               backup=yes 
+               regexp="^vil7=dsm_sm_psrvil$"
+   notify:
+    - restart_dell_services
+   when: dell_disable_vil7

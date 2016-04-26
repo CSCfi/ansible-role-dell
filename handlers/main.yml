@@ -1,0 +1,4 @@
+---
+
+ - name: restart_dell_services
+   command: /opt/dell/srvadmin/sbin/srvadmin-services.sh restart

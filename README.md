@@ -16,6 +16,11 @@ Role Variables
 
 install_dell_dsu: True
 
+dell_disable_vil7: True
+
+disable_vil7 - This means OMSA won't load the dsm_sm_psrvil library - this disables NVMe detection by OMSA but it also makes all the omreport commands work on CentOS7.
+More details in the e-mails in linux-poweredge@lists.us.dell.com
+
 Dependencies
 ------------
 
