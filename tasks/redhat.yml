@@ -34,7 +34,7 @@
    lineinfile: dest=/opt/dell/srvadmin/etc/srvadmin-storage/stsvc.ini
                line="; vil7=dsm_sm_psrvil" 
                backup=yes 
-               regexp="^vil7=dsm_sm_psrvil$"
+               regexp="^.*vil7=dsm_sm_psrvil$"
    notify:
     - restart_dell_services
    when: dell_disable_vil7
