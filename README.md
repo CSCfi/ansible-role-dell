@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-dell.svg)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-dell)
+[![Build Status](https://travis-ci.org/CSCfi/ansible-role-dell.svg)](https://travis-ci.org/CSCfi/ansible-role-dell)
 ansible-role-dell
 =========
 
