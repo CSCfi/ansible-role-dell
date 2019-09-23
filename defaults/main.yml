@@ -24,3 +24,13 @@ dell_install_helper_scripts: True
 
 # Set this to False to not comment out the "vil7=dsm_sm_psrvil" in stsvc.ini from srvadmin-storage
 dell_disable_vil7: True
+
+# Dell GPG key URL's
+dell_gpg_key_url: https://linux.dell.com/repo/pgp_pubkeys/
+
+dell_gpg_path: /usr/libexec/dell_dup/
+
+dell_gpg_keyfiles:
+  - "0x756ba70b1019ced6.asc"
+  - "0x1285491434D8786F.asc"
+  - "0xca77951d23b66a9d.asc"

@@ -3,7 +3,6 @@
 
 - include_tasks: redhat.yml
   when:
-    - ansible_connection != 'chroot'
-    - ansible_system_vendor == "Dell Inc."
+    - (ansible_connection == 'chroot' or ansible_system_vendor == "Dell Inc.")
     - ansible_os_family == "RedHat"
     - install_dell_dsu

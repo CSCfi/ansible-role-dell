@@ -2,7 +2,25 @@
 # tasks file for ansible-role-dell
 
  - name: add Dell DSU repo
-   template: src=dell-system-update-repository.repo.j2 dest=/etc/yum.repos.d/dell-system-update-repository.repo mode=0644 owner=root backup=yes
+   copy: src=dell-system-update.repo dest=/etc/yum.repos.d/dell-system-update.repo mode=0644 owner=root backup=yes
+
+ - name: Make sure /usr/libexec/dell_dup exists
+   file:
+     path: "{{ dell_gpg_path }}"
+     state: directory
+     mode: '0755'
+
+ - name: Fetch Dell GPG keys
+   get_url:
+     url: "{{ dell_gpg_key_url }}{{ item }}"
+     dest: "{{ dell_gpg_path }}"
+   loop: "{{ dell_gpg_keyfiles }}"
+
+ - name: Install Dell GPG keys to rpm
+   rpm_key:
+     key: "{{ dell_gpg_path + item}}"
+     state: present
+   loop: "{{ dell_gpg_keyfiles }}"
 
  - name: install Dell DSU Key
    rpm_key: key=http://linux.dell.com/repo/hardware/dsu/public.key state=present
