@@ -4,6 +4,11 @@
  - name: add Dell DSU repo
    copy: src=dell-system-update.repo dest=/etc/yum.repos.d/dell-system-update.repo mode=0644 owner=root backup=yes
 
+ - name: Remove old repofile
+   file:
+     path: "/etc/yum.repos.d/dell-system-update-repository.repo"
+     state: absent
+
  - name: Make sure /usr/libexec/dell_dup exists
    file:
      path: "{{ dell_gpg_path }}"
