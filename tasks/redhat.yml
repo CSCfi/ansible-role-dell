@@ -30,14 +30,22 @@
  - name: install Dell DSU Key
    rpm_key: key=http://linux.dell.com/repo/hardware/dsu/public.key state=present
 
- - name: install packages
-   yum: pkg={{ item }}
-   with_items: "{{ dell_packages }}"
-   when: dell_packages.0 != ""
+ - name: install DSU packages
+   package:
+     name: "{{ dell_dsu_packages }}"
+     state: present
+   when: install_dell_dsu
+
+ - name: install idracadm packages
+   package:
+     name: "{{ dell_idracadm_packages }}"
+     state: present
+   when: dell_install_idracadm
 
  - name: install omreport packages
-   yum: pkg={{ item }}
-   with_items: "{{ dell_omreport_packages }}"
+   package:
+     name: "{{ dell_omreport_packages }}"
+     state: present
    when: dell_omreport_packages.0 != "" and dell_omreport
    register: reg_installed_omreport
 

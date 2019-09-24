@@ -2,12 +2,14 @@
 # defaults file for ansible-role-dell
 # set to false to not install anything
 install_dell_dsu: True
-
-dell_packages:
- - "srvadmin-idracadm7"
- - "openssl-devel"
+dell_dsu_packages:
  - "dell-system-update"
  - "net-tools"
+
+dell_install_idracadm: True
+dell_idracadm_packages:
+  - "srvadmin-idracadm7"
+  - "openssl-devel"
 
 # If True install packages so one can run check_openmanage
 # http://folk.uio.no/trondham/software/check_openmanage.html
