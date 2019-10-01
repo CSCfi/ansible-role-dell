@@ -68,4 +68,6 @@
                regexp="^.*vil7=dsm_sm_psrvil$"
    notify:
     - restart_dell_services
-   when: dell_disable_vil7
+   when:
+     - dell_disable_vil7
+     - dell_omreport
