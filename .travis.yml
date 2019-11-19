@@ -43,3 +43,6 @@ after_script:
   - docker ps -a
   - docker stop $DOCKER_CONTAINER_ID
   - docker rm -v $DOCKER_CONTAINER_ID
+notifications:
+  email: false
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

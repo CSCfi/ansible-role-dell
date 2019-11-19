@@ -23,7 +23,7 @@
 
  - name: Install Dell GPG keys to rpm
    rpm_key:
-     key: "{{ dell_gpg_path + item}}"
+     key: "{{ dell_gpg_path + item }}"
      state: present
    loop: "{{ dell_gpg_keyfiles }}"
 
@@ -46,7 +46,7 @@
    package:
      name: "{{ dell_omreport_packages }}"
      state: present
-   when: dell_omreport_packages.0 != "" and dell_omreport
+   when: dell_omreport_packages|length > 0 and dell_omreport
    register: reg_installed_omreport
 
  - name: restart dell services if we just installed them
@@ -56,15 +56,15 @@
  - name: copy in idrac csc helper scripts
    copy: src={{ item }} dest=/usr/local/bin/{{ item }} mode=0755 owner=root group=root backup=no
    with_items: "{{ dell_helper_scripts }}"
-   when: dell_helper_scripts.0 != "" and dell_install_helper_scripts
+   when: dell_helper_scripts|length > 0 and dell_install_helper_scripts
 
  - name: copy remote console app binary
    copy: src=remoteConsoleLoader dest=/opt/dell/remoteConsoleLoader mode=0755 owner=root group=root backup=no
 
  - name: disable NVMe device monitoring - in OMSA 8.3 it breaks omreport commands
    lineinfile: dest=/opt/dell/srvadmin/etc/srvadmin-storage/stsvc.ini
-               line="; vil7=dsm_sm_psrvil" 
-               backup=yes 
+               line="; vil7=dsm_sm_psrvil"
+               backup=yes
                regexp="^.*vil7=dsm_sm_psrvil$"
    notify:
     - restart_dell_services
