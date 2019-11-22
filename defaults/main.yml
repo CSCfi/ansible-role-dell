@@ -2,6 +2,8 @@
 # defaults file for ansible-role-dell
 # set to false to not install anything
 install_dell_dsu: True
+# set install_dell_force to False in case we want to install on for example a VM
+install_dell_force: False
 dell_dsu_packages:
  - "dell-system-update"
  - "net-tools"
