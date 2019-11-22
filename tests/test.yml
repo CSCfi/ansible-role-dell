@@ -1,6 +1,16 @@
 ---
 
- - hosts: localhost
+ - name: a play with default variables
+   hosts: localhost
    remote_user: root
+   roles:
+     - ansible-role-dell
+
+ - name: run a play with dell_omreport_packages set to empty list - it should not install anything
+   hosts: localhost
+   remote_user: root
+   vars:
+     - dell_omreport_packages: []
+     - dell_helper_scripts: []
    roles:
      - ansible-role-dell
