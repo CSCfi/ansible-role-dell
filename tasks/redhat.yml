@@ -15,13 +15,22 @@
      state: directory
      mode: '0755'
 
- - name: Fetch Dell GPG keys
-   get_url:
-     url: "{{ dell_gpg_key_url }}{{ item }}"
-     dest: "{{ dell_gpg_path }}"
-   loop: "{{ dell_gpg_keyfiles }}"
+ - name: Check status of keyfiles
+   stat:
+     path: "{{ dell_gpg_path }}{{ item }}"
+   with_items: "{{ dell_gpg_keyfiles }}"
+   register: dell_keys_existing
 
- - name: Install Dell GPG keys to rpm
+ - name: Fetch missing Dell GPG keyfiles
+   get_url:
+     url: "{{ dell_gpg_key_url }}{{ item.item }}"
+     dest: "{{ dell_gpg_path }}"
+   with_items: "{{ dell_keys_existing.results }}"
+   when: item.stat.exists == 0
+   loop_control:
+     label: "{{ item.item }}"
+
+ - name: Import Dell GPG keys to rpm database
    rpm_key:
      key: "{{ dell_gpg_path + item }}"
      state: present
